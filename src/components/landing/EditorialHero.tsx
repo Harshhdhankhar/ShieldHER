@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Battery, Clock, GraduationCap, Heart, Home, MapPin, Train, Eye } from 'lucide-react';
+import { AmbientFloatingBackground } from './AmbientFloatingBackground';
 
 const ease = [0.22, 0.61, 0.36, 1] as const;
 
@@ -39,6 +40,9 @@ export function EditorialHero() {
         backgroundSize: '28px 28px',
       }}
     >
+      {/* MODERN MOVING AMBIENT BACKGROUND LAYER (Fluid Blobs, Cursor Glow, Micro Particles & Pulse Waves) */}
+      <AmbientFloatingBackground />
+
       <div
         ref={stageRef}
         onMouseMove={handleMouseMove}
