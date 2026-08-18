@@ -8,7 +8,6 @@ import { GirlhoodMarquee } from '@/components/landing/GirlhoodMarquee';
 import { DidYouGetHomeSection } from '@/components/landing/DidYouGetHomeSection';
 import { CommunitySection } from '@/components/landing/CommunitySection';
 import { SafetyCircleSection } from '@/components/landing/SafetyCircleSection';
-import { GuardianStorySection } from '@/components/landing/GuardianStorySection';
 import { RouteComparisonPreview } from '@/components/landing/RouteComparisonPreview';
 import { EmergencyMomentSection } from '@/components/landing/EmergencyMomentSection';
 import { HumanNotesSection } from '@/components/landing/HumanNotesSection';
@@ -41,19 +40,16 @@ export default function LandingPage() {
         {/* 04. WARM CREAM: YOUR PEOPLE (SAFETY CIRCLE) */}
         <SafetyCircleSection />
 
-        {/* 05. DEEP BERRY: GUARDIAN MODE JOURNEY TIMELINE */}
-        <GuardianStorySection />
-
-        {/* 06. BUTTER YELLOW: SAFER ROUTE SELECTION */}
+        {/* 05. BUTTER YELLOW: SAFER ROUTE SELECTION */}
         <RouteComparisonPreview />
 
-        {/* 07. NEAR BLACK: EMERGENCY DISPATCH PROTOCOL */}
+        {/* 06. NEAR BLACK: EMERGENCY DISPATCH PROTOCOL */}
         <EmergencyMomentSection />
 
-        {/* 08. WARM CREAM: HUMAN NOTES & COMMUNITY PROOF */}
+        {/* 07. WARM CREAM: HUMAN NOTES & COMMUNITY PROOF */}
         <HumanNotesSection />
 
-        {/* 09. WARM CREAM: FINAL EMOTIONAL CTA */}
+        {/* 08. WARM CREAM: FINAL EMOTIONAL CTA */}
         <FinalEmotionalCTA />
       </main>
 
