@@ -247,19 +247,19 @@ export function EditorialHero() {
         </div>
 
         {/* =========================================================================
-            ZONE 2: CENTER — DOMINANT CENTERED BRAND STATEMENT (BIGGER & SPACIOUS)
+            ZONE 2: CENTER — DOMINANT CENTERED BRAND STATEMENT (GRAND SCALE)
             ========================================================================= */}
-        <div className="relative lg:absolute lg:top-[1.5%] lg:left-1/2 lg:-translate-x-1/2 z-30 w-full lg:w-[58%] max-w-[840px] mx-auto text-center flex flex-col items-center">
+        <div className="relative lg:absolute lg:top-[1.5%] lg:left-1/2 lg:-translate-x-1/2 z-30 w-full lg:w-[64%] max-w-[980px] mx-auto text-center flex flex-col items-center">
           {/* Top Cultural Pill Badge */}
           <div className="relative inline-flex items-center">
             <motion.div
               initial={reduce ? false : { opacity: 0, y: -10, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.45, delay: 0.05, ease }}
-              className="inline-flex items-center gap-2 bg-[#F3A9BC] text-[#7A2948] border-2 border-[#202020] rounded-full px-4 sm:px-5 py-1.5 shadow-[3px_3px_0px_#1d1d1d] -rotate-1 cursor-default hover:rotate-0 hover:scale-105 transition-all"
+              className="inline-flex items-center gap-2 bg-[#F3A9BC] text-[#7A2948] border-2 border-[#202020] rounded-full px-5 py-1.5 shadow-[3px_3px_0px_#1d1d1d] -rotate-1 cursor-default hover:rotate-0 hover:scale-105 transition-all"
             >
               <Heart className="w-3.5 h-3.5 fill-[#7A2948] text-[#7A2948] shrink-0" />
-              <span className="text-[10px] sm:text-xs font-black uppercase tracking-[0.14em]">
+              <span className="text-xs sm:text-[13px] font-black uppercase tracking-[0.14em]">
                 FOR THE “DID YOU GET HOME?” GIRLS ♡
               </span>
             </motion.div>
@@ -268,53 +268,53 @@ export function EditorialHero() {
             </span>
           </div>
 
-          {/* Mega Headline — Massive & Commanding */}
+          {/* Mega Headline — Grand Editorial Scale */}
           <motion.h1
             initial={reduce ? false : { opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.12, ease }}
-            className="editorial-main-headline mt-2 sm:mt-2.5 text-center tracking-tight leading-[0.70]"
+            className="editorial-main-headline mt-2 sm:mt-3 text-center tracking-tight leading-[0.70]"
           >
             {/* ALWAYS: Huge bold grotesk / sans-serif with pink highlight strip */}
             <div className="relative inline-block">
-              <span className="absolute -left-6 top-1/2 -translate-y-1/2 text-sm text-[#B63A5B] rotate-[-15deg] pointer-events-none">
+              <span className="absolute -left-7 top-1/2 -translate-y-1/2 text-base text-[#B63A5B] rotate-[-15deg] pointer-events-none">
                 ♥
               </span>
               
               <span
-                className="absolute inset-x-[-3%] top-[24%] bottom-[10%] bg-[#F3A9BC] -rotate-0.5 -z-10 rounded-xs pointer-events-none"
+                className="absolute inset-x-[-4%] top-[22%] bottom-[8%] bg-[#F3A9BC] -rotate-0.5 -z-10 rounded-xs pointer-events-none"
                 aria-hidden="true"
               />
 
-              <span className="font-sans font-extrabold uppercase text-[#202020] text-[clamp(6.2rem,9.4vw,8.8rem)] leading-[0.70] tracking-[-0.04em]">
+              <span className="font-sans font-extrabold uppercase text-[#202020] text-[clamp(7.2rem,11.5vw,10.6rem)] leading-[0.70] tracking-[-0.04em]">
                 ALWAYS
               </span>
 
-              <span className="absolute -right-8 top-1.5 text-base sm:text-lg text-[#7A2948] rotate-12 pointer-events-none font-serif">
+              <span className="absolute -right-9 top-1.5 text-lg sm:text-xl text-[#7A2948] rotate-12 pointer-events-none font-serif">
                 ✧
               </span>
             </div>
 
             {/* connected, never */}
-            <span className="block font-editorial-serif italic font-normal text-[#7A2948] text-[clamp(3.8rem,6.0vw,5.6rem)] leading-[0.78] tracking-tight mt-0.5 sm:mt-1">
+            <span className="block font-editorial-serif italic font-normal text-[#7A2948] text-[clamp(4.4rem,7.0vw,6.6rem)] leading-[0.76] tracking-tight mt-0.5 sm:mt-1">
               connected, never
             </span>
 
             {/* alone. + heart doodle + underline */}
-            <span className="relative inline-block font-editorial-serif italic font-normal text-[#7A2948] text-[clamp(4.8rem,7.4vw,6.8rem)] leading-[0.76] tracking-tight mt-0.5">
+            <span className="relative inline-block font-editorial-serif italic font-normal text-[#7A2948] text-[clamp(5.6rem,8.6vw,8.0rem)] leading-[0.74] tracking-tight mt-0.5">
               alone.
               <span className="inline-block ml-2 text-[0.65em] text-[#7A2948] font-normal not-italic align-middle">
                 ♡
               </span>
               <svg
-                className="absolute -bottom-1.5 sm:-bottom-2 inset-x-[-5%] w-[110%] h-3.5 text-[#7A2948] pointer-events-none overflow-visible"
+                className="absolute -bottom-2 sm:-bottom-2.5 inset-x-[-5%] w-[110%] h-4 text-[#7A2948] pointer-events-none overflow-visible"
                 viewBox="0 0 220 16"
                 fill="none"
               >
                 <path
                   d="M 4 11 C 60 4, 140 4, 216 11"
                   stroke="currentColor"
-                  strokeWidth="3.2"
+                  strokeWidth="3.6"
                   strokeLinecap="round"
                 />
               </svg>
@@ -326,7 +326,7 @@ export function EditorialHero() {
             initial={reduce ? false : { opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.22, ease }}
-            className="mt-5 sm:mt-6 text-[#202020] font-extrabold text-xs sm:text-[1.02rem] leading-snug max-w-md"
+            className="mt-6 sm:mt-7 text-[#202020] font-extrabold text-sm sm:text-[1.12rem] leading-snug max-w-lg"
           >
             Your people. Your journey.
             <br />
@@ -338,17 +338,17 @@ export function EditorialHero() {
             initial={reduce ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3, ease }}
-            className="flex flex-wrap items-center justify-center gap-4 mt-6 sm:mt-7"
+            className="flex flex-wrap items-center justify-center gap-4 mt-6 sm:mt-8"
           >
             {/* START MY CIRCLE */}
             <button
               type="button"
               onClick={() => router.push('/signup')}
-              className="group inline-flex items-center gap-2.5 bg-[#7A2948] hover:bg-[#5E1F36] text-[#FFFDF9] font-black text-xs sm:text-sm uppercase tracking-wider px-7 py-3.5 rounded-full border-2 border-[#202020] shadow-[4px_4px_0px_#1d1d1d] hover:shadow-[6px_6px_0px_#1d1d1d] hover:-translate-y-0.5 active:translate-y-0.5 transition-all duration-200 cursor-pointer"
+              className="group inline-flex items-center gap-2.5 bg-[#7A2948] hover:bg-[#5E1F36] text-[#FFFDF9] font-black text-xs sm:text-sm uppercase tracking-wider px-8 sm:px-9 py-4 rounded-full border-2 border-[#202020] shadow-[4px_4px_0px_#1d1d1d] hover:shadow-[6px_6px_0px_#1d1d1d] hover:-translate-y-0.5 active:translate-y-0.5 transition-all duration-200 cursor-pointer"
             >
-              <Heart className="w-3.5 h-3.5 fill-[#F3A9BC] text-[#F3A9BC] group-hover:scale-125 transition-transform" />
+              <Heart className="w-4 h-4 fill-[#F3A9BC] text-[#F3A9BC] group-hover:scale-125 transition-transform" />
               <span>START MY CIRCLE</span>
-              <Heart className="w-3.5 h-3.5 fill-[#F3A9BC] text-[#F3A9BC] group-hover:scale-125 transition-transform" />
+              <Heart className="w-4 h-4 fill-[#F3A9BC] text-[#F3A9BC] group-hover:scale-125 transition-transform" />
             </button>
 
             {/* SEE HOW IT WORKS */}
@@ -358,7 +358,7 @@ export function EditorialHero() {
                 const el = document.getElementById('group-chat') || document.getElementById('did-you-get-home');
                 el?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="group inline-flex items-center gap-2 bg-[#F4E58C] hover:bg-[#EBD96B] text-[#202020] font-black text-xs sm:text-sm uppercase tracking-wider px-7 py-3.5 rounded-full border-2 border-[#202020] shadow-[4px_4px_0px_#1d1d1d] hover:shadow-[6px_6px_0px_#1d1d1d] hover:-translate-y-0.5 active:translate-y-0.5 transition-all duration-200 cursor-pointer"
+              className="group inline-flex items-center gap-2 bg-[#F4E58C] hover:bg-[#EBD96B] text-[#202020] font-black text-xs sm:text-sm uppercase tracking-wider px-8 sm:px-9 py-4 rounded-full border-2 border-[#202020] shadow-[4px_4px_0px_#1d1d1d] hover:shadow-[6px_6px_0px_#1d1d1d] hover:-translate-y-0.5 active:translate-y-0.5 transition-all duration-200 cursor-pointer"
             >
               <span>SEE HOW IT WORKS</span>
               <ArrowRight className="w-4 h-4 text-[#202020] group-hover:translate-x-1.5 transition-transform" />
