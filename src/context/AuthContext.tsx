@@ -76,23 +76,18 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const newUser = { name, email };
     setUser(newUser);
     localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(newUser));
-    
-    // If user has completed onboarding previously, go straight to app
-    const hasOnboarded = localStorage.getItem(ONBOARDED_STORAGE_KEY) === 'true';
-    if (hasOnboarded) {
-      router.push('/app');
-    } else {
-      router.push('/onboarding');
-    }
+    localStorage.setItem(ONBOARDED_STORAGE_KEY, 'true');
+    setIsOnboarded(true);
+    router.push('/');
   };
 
   const signup = (name: string, email: string) => {
     const newUser = { name, email };
     setUser(newUser);
     localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(newUser));
-    localStorage.setItem(ONBOARDED_STORAGE_KEY, 'false');
-    setIsOnboarded(false);
-    router.push('/onboarding');
+    localStorage.setItem(ONBOARDED_STORAGE_KEY, 'true');
+    setIsOnboarded(true);
+    router.push('/');
   };
 
   const completeOnboarding = (userData: Partial<User>) => {
@@ -103,7 +98,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
     setIsOnboarded(true);
     localStorage.setItem(ONBOARDED_STORAGE_KEY, 'true');
-    router.push('/app');
+    router.push('/');
   };
 
   const logout = () => {

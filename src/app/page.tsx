@@ -57,7 +57,7 @@ export default function LandingPage() {
       <div id="about">
         <EditorialFooter
           onStartJourneyClick={() => router.push('/signup')}
-          onOpenAppClick={() => router.push('/app')}
+          onOpenAppClick={() => router.push('/signup')}
         />
       </div>
 
