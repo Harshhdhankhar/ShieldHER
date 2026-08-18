@@ -140,24 +140,24 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Actions */}
-          <div className="flex items-center gap-3 sm:gap-4">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            {/* SIGN IN BUTTON */}
             <Link
               href="/signin"
-              className="group hidden sm:inline-flex items-center gap-1.5 text-xs font-extrabold text-[#7A2948]"
+              className="hidden sm:inline-flex items-center gap-1.5 bg-[#FFFDF9] hover:bg-[#F4E58C] text-[#7A2948] hover:text-[#202020] text-xs font-black uppercase tracking-wider px-4 py-1.5 rounded-full border-2 border-[#202020] shadow-[2px_2px_0px_#202020] hover:shadow-[3px_3px_0px_#202020] hover:-translate-y-0.5 active:translate-y-0.5 transition-all duration-200"
             >
-              Sign in
-              <span className="w-1.5 h-1.5 rounded-full bg-[#B63A5B] scale-0 opacity-0 transition-all duration-200 group-hover:scale-100 group-hover:opacity-100" />
+              <span>Sign in</span>
             </Link>
 
-            <ShieldButton
-              variant="primary"
-              size="md"
-              className="hidden sm:inline-flex bg-[#7A2948] hover:bg-[#5A1A32] text-[#F5F0E8] border-2 border-[#202020] shadow-[3px_3px_0px_#202020]"
-              icon={<ArrowRight className="w-4 h-4" />}
-              onClick={() => router.push('/signup')}
+            {/* GET STARTED / SIGN UP BUTTON */}
+            <Link
+              href="/signup"
+              className="group hidden sm:inline-flex items-center gap-2 bg-[#7A2948] hover:bg-[#5E1F36] text-[#FFFDF9] text-xs font-black uppercase tracking-wider px-5 py-1.5 rounded-full border-2 border-[#202020] shadow-[3px_3px_0px_#202020] hover:shadow-[4px_4px_0px_#202020] hover:-translate-y-0.5 active:translate-y-0.5 transition-all duration-200"
             >
-              Get started
-            </ShieldButton>
+              <Heart className="w-3.5 h-3.5 fill-[#F3A9BC] text-[#F3A9BC] group-hover:scale-125 transition-transform" />
+              <span>Get started</span>
+              <ArrowRight className="w-3.5 h-3.5 text-[#FFFDF9] group-hover:translate-x-1 transition-transform" />
+            </Link>
 
             {/* Mobile menu toggle */}
             <button
