@@ -2,19 +2,19 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Heart } from 'lucide-react';
 import { ShieldButton } from '@/components/ui/ShieldButton';
 
 const ease: [number, number, number, number] = [0.22, 0.61, 0.36, 1];
 
-/* Section anchors used for active-state tracking */
+/* Section anchors matching our page sections */
 const LINKS = [
-  { href: '#group-chat', label: 'How it works', anchor: 'group-chat' },
-  { href: '#around-me', label: 'Community', anchor: 'around-me' },
-  { href: '#around-me', label: 'Safety', anchor: 'around-me' },
-  { href: '#footer', label: 'About', anchor: 'footer' },
+  { href: '#how-it-works', label: 'How it works', anchor: 'how-it-works' },
+  { href: '#community', label: 'Community', anchor: 'community' },
+  { href: '#safety', label: 'Safety', anchor: 'safety' },
+  { href: '#about', label: 'About', anchor: 'about' },
 ];
 
 /* Tiny route-line that extends from the logo dot on hover */
@@ -33,20 +33,47 @@ const Star4 = ({ className = '' }: { className?: string }) => (
 
 export const Navbar: React.FC = () => {
   const router = useRouter();
+  const pathname = usePathname();
   const reduceMotion = useReducedMotion();
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState('');
   const [open, setOpen] = useState(false);
 
+  /* Smooth scroll handler with fixed navbar offset compensation */
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, anchor: string) => {
+    e.preventDefault();
+    setOpen(false);
+
+    if (pathname !== '/') {
+      router.push(`/#${anchor}`);
+      return;
+    }
+
+    const target = document.getElementById(anchor);
+    if (target) {
+      const navHeight = 64; // header height offset
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+      setActive(anchor);
+    }
+  };
+
   /* Scroll: compact the nav + detect active section */
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 24);
-      const mid = window.scrollY + window.innerHeight * 0.4;
+      const mid = window.scrollY + window.innerHeight * 0.35;
       let found = '';
       for (const l of LINKS) {
         const el = document.getElementById(l.anchor);
-        if (el && el.offsetTop <= mid) found = l.anchor;
+        if (el && el.offsetTop <= mid) {
+          found = l.anchor;
+        }
       }
       setActive(found);
     };
@@ -96,13 +123,14 @@ export const Navbar: React.FC = () => {
             </span>
           </Link>
 
-          {/* Desktop links */}
+          {/* Desktop links with smooth scroll */}
           <nav className="hidden lg:flex items-center gap-8" aria-label="Main">
             {LINKS.map((l) => (
               <a
                 key={l.label}
                 href={l.href}
-                className={`nav-line relative text-sm font-extrabold transition-colors ${
+                onClick={(e) => handleNavClick(e, l.anchor)}
+                className={`nav-line relative text-sm font-extrabold cursor-pointer transition-colors ${
                   isActive(l.anchor) ? 'active text-[#7A2948]' : 'text-[#202020] hover:text-[#7A2948]'
                 }`}
               >
@@ -193,11 +221,11 @@ export const Navbar: React.FC = () => {
                   <motion.a
                     key={l.label}
                     href={l.href}
-                    onClick={() => setOpen(false)}
+                    onClick={(e) => handleNavClick(e, l.anchor)}
                     initial={reduceMotion ? false : { opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.05 }}
-                    className="group flex items-baseline justify-between border-b-2 border-[#202020]/15 py-3"
+                    className="group flex items-baseline justify-between border-b-2 border-[#202020]/15 py-3 cursor-pointer"
                   >
                     <span className="font-editorial-serif italic text-[1.9rem] sm:text-4xl leading-tight text-[#7A2948]">
                       {l.label}

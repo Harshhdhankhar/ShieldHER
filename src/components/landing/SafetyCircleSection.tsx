@@ -12,7 +12,7 @@ export const SafetyCircleSection: React.FC = () => {
 
   return (
     <section
-      id="safety-circle"
+      id="safety"
       className="relative bg-[#F5F0E8] border-b-2 border-[#202020] text-[#202020] select-none py-10 sm:py-14"
       style={{
         backgroundImage: `

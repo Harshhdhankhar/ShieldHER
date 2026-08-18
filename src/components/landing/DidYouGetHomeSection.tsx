@@ -12,7 +12,7 @@ export const DidYouGetHomeSection: React.FC = () => {
 
   return (
     <section
-      id="did-you-get-home"
+      id="how-it-works"
       className="relative bg-[#C2DCEB] text-[#202020] select-none min-h-[calc(100svh-4rem)] max-h-[920px] flex flex-col justify-between pt-8 sm:pt-10 pb-12 sm:pb-14 overflow-hidden"
       style={{
         backgroundImage: `

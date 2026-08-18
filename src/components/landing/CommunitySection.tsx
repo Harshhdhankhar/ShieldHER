@@ -11,7 +11,7 @@ export const CommunitySection: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<'all' | 'members' | 'responders' | 'safePlaces'>('all');
 
   return (
-    <section id="community-presence" className="relative select-none text-[#202020]">
+    <section id="community" className="relative select-none text-[#202020]">
       
       {/* =========================================================================
           CREAM GRID MAIN INTERACTIVE RADAR MAP CANVAS
