@@ -78,7 +78,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(newUser));
     localStorage.setItem(ONBOARDED_STORAGE_KEY, 'true');
     setIsOnboarded(true);
-    router.push('/');
+    router.push('/dashboard');
   };
 
   const signup = (name: string, email: string) => {
@@ -87,7 +87,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(newUser));
     localStorage.setItem(ONBOARDED_STORAGE_KEY, 'true');
     setIsOnboarded(true);
-    router.push('/');
+    router.push('/dashboard');
   };
 
   const completeOnboarding = (userData: Partial<User>) => {

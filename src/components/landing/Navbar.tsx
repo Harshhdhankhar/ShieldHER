@@ -4,8 +4,9 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Heart } from 'lucide-react';
+import { ArrowRight, Heart, Bell } from 'lucide-react';
 import { ShieldButton } from '@/components/ui/ShieldButton';
+import { useAuth } from '@/context/AuthContext';
 
 const ease: [number, number, number, number] = [0.22, 0.61, 0.36, 1];
 
@@ -34,6 +35,7 @@ const Star4 = ({ className = '' }: { className?: string }) => (
 export const Navbar: React.FC = () => {
   const router = useRouter();
   const pathname = usePathname();
+  const { user, isAuthenticated, logout } = useAuth();
   const reduceMotion = useReducedMotion();
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState('');
@@ -140,24 +142,60 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Actions */}
-          <div className="flex items-center gap-2.5 sm:gap-3">
-            {/* SIGN IN BUTTON */}
-            <Link
-              href="/signin"
-              className="hidden sm:inline-flex items-center gap-1.5 bg-[#FFFDF9] hover:bg-[#F4E58C] text-[#7A2948] hover:text-[#202020] text-xs font-black uppercase tracking-wider px-4 py-1.5 rounded-full border-2 border-[#202020] shadow-[2px_2px_0px_#202020] hover:shadow-[3px_3px_0px_#202020] hover:-translate-y-0.5 active:translate-y-0.5 transition-all duration-200"
-            >
-              <span>Sign in</span>
-            </Link>
+          <div className="flex items-center gap-2 sm:gap-3">
+            {isAuthenticated && pathname === '/dashboard' ? (
+              <div className="hidden sm:flex items-center gap-2.5">
+                {/* Notification Bell */}
+                <button
+                  type="button"
+                  className="relative w-8 h-8 rounded-full bg-[#FAF7F0] hover:bg-[#F4E58C] border-2 border-[#202020] flex items-center justify-center text-[#7A2948] shadow-[2px_2px_0px_#202020] transition-all cursor-pointer"
+                  title="3 live updates"
+                >
+                  <span className="text-xs">🔔</span>
+                  <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#B63A5B] border border-[#202020] rounded-full" />
+                </button>
 
-            {/* GET STARTED / SIGN UP BUTTON */}
-            <Link
-              href="/signup"
-              className="group hidden sm:inline-flex items-center gap-2 bg-[#7A2948] hover:bg-[#5E1F36] text-[#FFFDF9] text-xs font-black uppercase tracking-wider px-5 py-1.5 rounded-full border-2 border-[#202020] shadow-[3px_3px_0px_#202020] hover:shadow-[4px_4px_0px_#202020] hover:-translate-y-0.5 active:translate-y-0.5 transition-all duration-200"
-            >
-              <Heart className="w-3.5 h-3.5 fill-[#F3A9BC] text-[#F3A9BC] group-hover:scale-125 transition-transform" />
-              <span>Get started</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#FFFDF9] group-hover:translate-x-1 transition-transform" />
-            </Link>
+                {/* User Avatar & Name */}
+                <Link
+                  href="/dashboard"
+                  className="inline-flex items-center gap-2 bg-[#FFFDF9] hover:bg-[#F4E58C] border-2 border-[#202020] rounded-full pl-1 pr-3 py-1 shadow-[2px_2px_0px_#202020] transition-all"
+                >
+                  <div className="w-6 h-6 rounded-full bg-[#7A2948] text-[#FFFDF9] font-black text-xs flex items-center justify-center border border-[#202020]">
+                    {user?.name?.[0] || 'H'}
+                  </div>
+                  <span className="text-xs font-black text-[#202020]">{user?.name || 'Harsh'}</span>
+                </Link>
+
+                {/* Logout link */}
+                <button
+                  type="button"
+                  onClick={logout}
+                  className="text-[11px] font-black text-[#7A2948] hover:underline px-1 cursor-pointer"
+                >
+                  Log out
+                </button>
+              </div>
+            ) : (
+              <>
+                {/* SIGN IN BUTTON */}
+                <Link
+                  href="/signin"
+                  className="hidden sm:inline-flex items-center gap-1.5 bg-[#FFFDF9] hover:bg-[#F4E58C] text-[#7A2948] hover:text-[#202020] text-xs font-black uppercase tracking-wider px-4 py-1.5 rounded-full border-2 border-[#202020] shadow-[2px_2px_0px_#202020] hover:shadow-[3px_3px_0px_#202020] hover:-translate-y-0.5 active:translate-y-0.5 transition-all duration-200"
+                >
+                  <span>Sign in</span>
+                </Link>
+
+                {/* GET STARTED / SIGN UP BUTTON */}
+                <Link
+                  href="/signup"
+                  className="group hidden sm:inline-flex items-center gap-2 bg-[#7A2948] hover:bg-[#5E1F36] text-[#FFFDF9] text-xs font-black uppercase tracking-wider px-5 py-1.5 rounded-full border-2 border-[#202020] shadow-[3px_3px_0px_#202020] hover:shadow-[4px_4px_0px_#202020] hover:-translate-y-0.5 active:translate-y-0.5 transition-all duration-200"
+                >
+                  <Heart className="w-3.5 h-3.5 fill-[#F3A9BC] text-[#F3A9BC] group-hover:scale-125 transition-transform" />
+                  <span>Get started</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#FFFDF9] group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </>
+            )}
 
             {/* Mobile menu toggle */}
             <button
